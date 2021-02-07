@@ -1,0 +1,16 @@
+{
+  "name": "tshirt-generator",
+  "version": "1.0.0",
+  "description": "T-Shirt generator",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Elias Dörig",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.125.2"
+  }
+}
