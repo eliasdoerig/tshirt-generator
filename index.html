@@ -14,17 +14,35 @@
 				top: 0;
 				right: 0;
 			}
-			#erase{
+			.controls{
 				position: absolute;
-				top: 260px;
+				top: 400px;
 				right: 10px;
+				width: 200px;
+			}
+			.controls > *{
+				float: right;
 			}
 		</style>
 	</head>
 	<body>
 		<canvas id="texture"></canvas>
-		<button id="erase">erase</button>
+		<div class="controls">
+			<button id="erase">erase</button>
+			<button id="savePNG" onclick="savePNG();">Save PNG</button>
+		</div>
 		<script src="texture.js"></script>
 		<script src="script.js"></script>
+		<script>
+			function savePNG(){
+				const t = Date.now();
+				const link = document.createElement('a');
+				const image = document.getElementById("texture").toDataURL("image/png").replace("image/png", "image/octet-stream");
+				link.download = `image-${t}.png`;
+				link.href = image;
+				link.click();
+				link.delete;
+			}
+		</script>
 	</body>
 </html>

@@ -38883,7 +38883,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0x080808, 1.2);
 scene.add(light);
 var loader = new _GLTFLoader.GLTFLoader();
 loader.load( // resource URL
-'model/scene.glb', // called when the resource is loaded
+'model/tshirt.glb', // called when the resource is loaded
 function (gltf) {
   tshirtObj = gltf.scene;
   scene.add(tshirtObj);
@@ -38928,8 +38928,8 @@ function updateTexture() {
   var canvasTexture = new THREE.CanvasTexture(canvas);
   canvasTexture.encoding = THREE.sRGBEncoding;
   canvasTexture.flipY = false;
-  canvasTexture.repeat.set(5, 5);
-  canvasTexture.offset.set(-.75, -.9);
+  canvasTexture.repeat.set(4.285, 3);
+  canvasTexture.offset.set(-.55, -.55);
   tshirtObj.traverse(function (child) {
     if (child instanceof THREE.Mesh) {
       //create a global var to reference later when changing textures
@@ -38981,7 +38981,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52798" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63870" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -98,8 +98,8 @@ function updateTexture() {
 
 	canvasTexture.encoding = THREE.sRGBEncoding;
 	canvasTexture.flipY = false;
-	canvasTexture.repeat.set(5, 5);
-	canvasTexture.offset.set(-.75, -.9 );
+	canvasTexture.repeat.set(4.285, 3);
+	canvasTexture.offset.set(-.55, -.55 );
 
 	tshirtObj.traverse( function ( child ) {
 		if (child instanceof THREE.Mesh) {

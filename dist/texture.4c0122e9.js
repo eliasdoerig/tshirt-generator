@@ -126,8 +126,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   canvas.addEventListener('mouseup', stopPainting);
   canvas.addEventListener('mousemove', sketch);
   document.getElementById('erase').addEventListener('click', erase);
-  ctx.canvas.width = 256;
-  ctx.canvas.height = 256;
+  ctx.canvas.width = 512;
+  ctx.canvas.height = 768;
+  canvas.style.width = 256 + "px";
+  canvas.style.height = 384 + "px";
   ctx.fillStyle = '#fff';
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   /*
@@ -153,8 +155,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // the said event is triggered. 
 
   function getPosition(event) {
-    coord.x = event.clientX - canvas.offsetLeft;
-    coord.y = event.clientY - canvas.offsetTop;
+    coord.x = (event.clientX - canvas.offsetLeft) * 2;
+    coord.y = (event.clientY - canvas.offsetTop) * 2;
   } // The following functions toggle the flag to start 
   // and stop drawing 
 
@@ -171,7 +173,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   function sketch(event) {
     if (!paint) return;
     ctx.beginPath();
-    ctx.lineWidth = 5; // Sets the end of the lines drawn 
+    ctx.lineWidth = 8; // Sets the end of the lines drawn 
     // to a round shape. 
 
     ctx.lineCap = 'round';
@@ -223,7 +225,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52798" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63870" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

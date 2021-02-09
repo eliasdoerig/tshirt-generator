@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>My first three.js app</title>
+		<title>T-Shirt generator</title>
 		<style>body { 
 				margin: 0; 
 				overflow: hidden;
@@ -13,16 +13,32 @@
 				top: 0;
 				right: 0;
 			}
-			#erase{
+			.controls{
 				position: absolute;
-				top: 260px;
+				top: 400px;
 				right: 10px;
+				width: 200px;
+			}
+			.controls > *{
+				float: right;
 			}</style>
 	</head>
 	<body>
 		<canvas id="texture"></canvas>
-		<button id="erase">erase</button>
+		<div class="controls">
+			<button id="erase">erase</button>
+			<button id="savePNG" onclick="savePNG();">Save PNG</button>
+		</div>
 		<script src="/texture.4c0122e9.js"></script>
 		<script src="/script.75da7f30.js"></script>
+		<script>function savePNG() {
+  var t = Date.now();
+  var link = document.createElement('a');
+  var image = document.getElementById("texture").toDataURL("image/png").replace("image/png", "image/octet-stream");
+  link.download = "image-".concat(t, ".png");
+  link.href = image;
+  link.click();
+  link.delete;
+}</script>
 	</body>
 </html>

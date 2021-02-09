@@ -1,7 +1,7 @@
 (function(document){
 
     const margin = 10;
-    const canvas = document.getElementById('texture')
+    const canvas = document.getElementById('texture');
     const ctx = canvas.getContext('2d');
 
     canvas.addEventListener('mousedown', startPainting); 
@@ -10,8 +10,10 @@
 
     document.getElementById('erase').addEventListener('click', erase);
 
-    ctx.canvas.width = 256;
-    ctx.canvas.height = 256;
+    ctx.canvas.width = 512;
+    ctx.canvas.height = 768;
+    canvas.style.width = 256 + "px";
+    canvas.style.height = 384  + "px";
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -26,7 +28,6 @@
     ctx.fill();
     */
 
-
     // Stores the initial position of the cursor 
     let coord = {x:0 , y:0};  
     
@@ -37,9 +38,9 @@
     // Updates the coordianates of the cursor when  
     // an event e is triggered to the coordinates where  
     // the said event is triggered. 
-    function getPosition(event){ 
-        coord.x = event.clientX - canvas.offsetLeft; 
-        coord.y = event.clientY - canvas.offsetTop; 
+    function getPosition(event){
+        coord.x = (event.clientX - canvas.offsetLeft) * 2; 
+        coord.y = (event.clientY - canvas.offsetTop) * 2; 
     } 
     
     // The following functions toggle the flag to start 
@@ -56,7 +57,7 @@
         if (!paint) return; 
         ctx.beginPath(); 
             
-        ctx.lineWidth = 5; 
+        ctx.lineWidth = 8; 
         
         // Sets the end of the lines drawn 
         // to a round shape. 
